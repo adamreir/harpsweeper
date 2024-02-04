@@ -1,16 +1,24 @@
 # Harpsweeper
 This is the repocitory for Harpsweeper, a program for composing and organizing for harps. 
 
-![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/harpsweeper_example.png)
+This program aids composing and organizing sequences of notes for the harp.
 
-## Compiling Harpsweeper into an executable program
+Harpsweeper lets you generate a sequency of notes. It then shows the notes that can be added, given that
+ - there exists a sequence of pedal configurations that can play the sequence.
+ - only one pedal per foot can change in a single period.
+ - pedals do not change at the same time or right after the corresponding string is played.
 
-To compile Harpsweeper, you need to 
+## Examples of usage: 
 
-Download the source files, install pyinstaller, and run 
-```
-pyinstaller --onefile --windowed --clean --add-data 'LICENSE;.' --add-data 'icon.ico;.' --icon 'icon.ico' -n 'Harpsweeper'  main.py
-```
+Example of working in Harpsweeper: 
+
+<img src="https://raw.githubusercontent.com/adamreir/harpsweeper/main/harpsweeper_example.png" alt="drawing" width="700"/>
+
+Generated sheet music based on the sequence above: 
+
+<img src="https://raw.githubusercontent.com/adamreir/harpsweeper/main/example_sheets.png" alt="drawing" width="700"/>
+
+Open Harpsweeper for a more detailed user guide. 
 
 ## Source Files: 
  - Code used to find available notes: 
@@ -23,6 +31,17 @@ pyinstaller --onefile --windowed --clean --add-data 'LICENSE;.' --add-data 'icon
    - texts.py -> Stores the text used in the GUI. Keeps track of the chosen language.
  - The main loop: 
    - main.py
+
+
+
+## Compiling Harpsweeper into an executable program
+
+To compile Harpsweeper, you need to 
+
+Download the source files, install pyinstaller, and run 
+```
+pyinstaller --onefile --windowed --clean --add-data 'LICENSE;.' --add-data 'icon.ico;.' --icon 'icon.ico' -n 'Harpsweeper'  main.py
+```
 
 
 ## False Positive Virus Detection
