@@ -1,6 +1,8 @@
 # Harpsweeper
 This is the repocitory for Harpsweeper, a program for composing and organizing for harps. 
 
+![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/harpsweeper_example.png)
+
 ## Compiling Harpsweeper into an executable program
 
 To compile Harpsweeper, you need to 
