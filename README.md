@@ -31,25 +31,16 @@ Open Harpsweeper for a more detailed user guide.
    - texts.py -> Stores the text used in the GUI and keeps track of the chosen language.
  - The main loop: 
    - main.py
-
-
+ - Self-explanatory additional files:
+   - LICENSE
+   - icon.ico
 
 ## Compiling Harpsweeper into an executable program
 
-To compile Harpsweeper, you need to 
-
-Download the source files, install pyinstaller, and run 
+To compile Harpsweeper, you need to:
+ - Download the source files
+ - Install pyinstaller
+ - Run the following in Command Promt (Windows):  
 ```
 pyinstaller --onefile --windowed --clean --add-data 'LICENSE;.' --add-data 'icon.ico;.' --icon 'icon.ico' -n 'Harpsweeper'  main.py
 ```
-
-
-## False Positive Virus Detection
-Programs compiled with PyInstaller are frequently subject to false positive detection from anti virus programs. 
-
-You can read more about this issue here: 
-
- - [https://github.com/pyinstaller/pyinstaller/blob/develop/.github/ISSUE_TEMPLATE/antivirus.md](https://github.com/pyinstaller/pyinstaller/blob/develop/.github/ISSUE_TEMPLATE/antivirus.md)
-
-And a solution here: 
- - [https://pyinstaller.org/en/stable/bootloader-building.html](https://pyinstaller.org/en/stable/bootloader-building.html)
