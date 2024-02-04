@@ -45,6 +45,7 @@ You can download a copy of Harpsweeper [here](https://www.dropbox.com/scl/fo/b9p
 
 To compile Harpsweeper, you need to:
  - Download the source files
+ - Install Python and required dependencies (see [requirements.txt](requirements.txt))
  - Install pyinstaller
  - Run the following in Command Promt (Windows):  
 ```
