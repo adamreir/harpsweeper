@@ -41,7 +41,7 @@ You can download a copy of Harpsweeper [here](https://www.dropbox.com/scl/fo/b9p
    - LICENSE
    - icon.ico
 
-## Compiling Harpsweeper into an executable program:
+## Compiling source files into an executable program:
 
 To compile Harpsweeper, you need to:
  - Download the source files
