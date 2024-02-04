@@ -25,10 +25,10 @@ Open Harpsweeper for a more detailed user guide.
    - solver.py
  - Code used to write sheet music:
    - write_sheet.py
- - Code used to generate the layout:
+ - Code used to generate the graphical user interface (GUI):
    - layouts.py -> defines each window of the GUI. 
    - theme.py -> Defines and organizes the two themes.
-   - texts.py -> Stores the text used in the GUI. Keeps track of the chosen language.
+   - texts.py -> Stores the text used in the GUI and keeps track of the chosen language.
  - The main loop: 
    - main.py
 
