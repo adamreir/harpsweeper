@@ -20,6 +20,10 @@ Generated sheet music based on the sequence above:
 
 Open Harpsweeper for a more detailed user guide. 
 
+## Download: 
+
+You can download a copy of Harpsweeper from Dropbox [here](https://www.dropbox.com/scl/fo/b9piezza5x2jjrh2e3miv/h?rlkey=rs0rz4ggzmhqkvangq15cyj6c&dl=0).
+
 ## Source Files: 
  - Code used to find available notes: 
    - solver.py
