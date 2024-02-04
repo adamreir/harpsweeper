@@ -35,7 +35,7 @@ Open Harpsweeper for a more detailed user guide.
    - LICENSE
    - icon.ico
 
-## Compiling Harpsweeper into an executable program
+## Compiling Harpsweeper into an executable program:
 
 To compile Harpsweeper, you need to:
  - Download the source files
