@@ -33,6 +33,8 @@ You can download a copy of Harpsweeper [here](https://www.dropbox.com/scl/fo/b9p
    - layouts.py -> defines each window of the GUI. 
    - theme.py -> Defines and organizes the two themes.
    - texts.py -> Stores the text used in the GUI and keeps track of the chosen language.
+ - Classes used to store and pass solvers and sequences between windows:
+   - holders.py
  - The main loop: 
    - main.py
  - Self-explanatory additional files:
