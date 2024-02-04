@@ -18,7 +18,7 @@ Generated sheet music based on the sequence above:
 
 <img src="https://raw.githubusercontent.com/adamreir/harpsweeper/main/example_images/example_sheets.png" alt="drawing" width="700"/>
 
-Open Harpsweeper for a more detailed user guide. 
+Open Harpsweeper for a more detailed user guide, or documentations of options [here](details/options_explained.md). 
 
 ## Download: 
 
