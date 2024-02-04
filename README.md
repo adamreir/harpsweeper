@@ -8,7 +8,7 @@ Harpsweeper lets you generate a sequency of notes. It then shows the notes that 
  - only one pedal per foot can change in a single period.
  - pedals do not change at the same time or right after the corresponding string is played.
 
-## Examples of usage: 
+## Example: 
 
 Example of working in Harpsweeper: 
 
