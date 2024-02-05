@@ -21,7 +21,7 @@ Which if these two sequences are playable on the harp?
 
 Example Sequence 1a)             |  Example Sequence 1b)
 :-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/details/example_images/Example_sequence_1a.png)  | ![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/details/example_images/Example_sequence_1b.png)
+![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/the_problem/Example_sequence_1a.png)  | ![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/the_problem/Example_sequence_1b.png)
 
 The answer is Example Sequence 1b). Example Sequence 1a) is not possible to play, because: 
  - The G string is occupied playing G in beat 1, which forces F# to be played on the F string.
@@ -39,7 +39,7 @@ In Harpsweeper, the to examples looks like this:
 
 Example Sequence 1 (Harpsweeper) |  Example Sequence 2 (Harpsweeper)
 :-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/details/example_images/Example_sequence_1a_harpsweeper.png)  |  ![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/details/example_images/Example_sequence_2b_harpsweeper.png)
+![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/the_problem/Example_sequence_1a_harpsweeper.png)  |  ![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/the_problem/Example_sequence_1b_harpsweeper.png)
 
 #### Example 2
 
@@ -47,7 +47,7 @@ Now consider an example that is a bit more complicated. Is the following sequenc
 
 Example Sequence 2 |
 :-------------------------:|
-![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/details/example_images/Example_sequence_2.png) |
+![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/the_problem/Example_sequence_2.png) |
 
 The answer is no! At least given the restrictions that are programmed into Harpsweeper. Here is the reason: 
  - The A, G, F and E strings are in the ♮ position in beat one and two.
@@ -63,5 +63,5 @@ In Harpsweeper, the impossibility of this sequence looks like this:
 
 Example Sequence 2 (Harpsweeper) |
 :-------------------------:|
-![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/details/example_images/Example_sequence_2_harpsweeper.png) |
+![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/the_problem/Example_sequence_2_harpsweeper).png |
 
