@@ -1,4 +1,4 @@
-# Main Code Elements. 
+# Main Code objects. 
 
 The source code for Harpsweeper defines Python functions and classes across several files. These elements are called from various files across the project. 
 This file documents the main entry points defined in each file. 
@@ -48,5 +48,20 @@ Where:
  - 'texts' is an instance of Texts, defined in texts.py.
  - 'theme' is an instance of Theme, defined in theme.py.
 
-The return value is in ['welcome', 'about', 'licence', 'main', 'save','exit'], which indicates which screen the user wants to go to. See main.py to see what these values do. 
+The return value of the function is a str in ['welcome', 'about', 'licence', 'main', 'save','exit'], which indicates where the user wants to go. 
+
+## texts.py
+
+Defines the Texts class. This class hols all of the text displayed in the GUI, returned by calling various methods. The attribute 'eng' (bool) determine if the texts returned by these methods are in English or Norwegian. 
+
+To instanciate, type
+```
+theme = Theme(sg)
+```
+Where 
+ - 'sg' 
+
+
+
+
 
