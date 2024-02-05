@@ -30,6 +30,12 @@ Every time the user adds or removes a note, Harpsweeper identifies available not
 
 ### 1. Find Valid Pedal-Configurations
 
+Finding valid pedal-configurations is done in two steps: 
+1. Within period: Find pedal configurations and string plucs that plays the selected notes.
+2. Across periods: Remove pedal configurations that are inconsistent with pedal configurations in the previous period ($t-1$). 
+
+#### Within period
+
 To identify valid pedal-configurations, Harpsweeper starts by doing the following for each period $t$: 
  - Generates a list of the $7^3=2,187$ pedal configuraitons available on the harp.
  - Removes any pedal-configuration that cannot play the selected notes.
@@ -49,12 +55,21 @@ Pedal configurations:  | String plucs:
 ...            | ...
 [♮,♮,#,♮,♮,♮,♮] | [0,0,1,0,0,0,0]
 [♮,♮,#,♮,♮,♮,♮] | [0,0,0,1,0,0,0]
+...            | ...
 
+Notice that the pedal configuration is duplicated. This is because it is associated with more than one valid string pluck. 
 
-The output of the above operation are two lists for each period: A list of pedal configurations, and a list of corresponding string plucs. 
+#### Across periods
 
- - generate a list of string-plucs that playes the notes selected in the current period $t$*.
- - Checks that there is a pedal configuration 
+Harpsweeper now knows which which pedal configurations and string plucs that plays the selected notes, within each period. It still does not knows which of the configurations are valid, however. This is because any of the pedal configurations can be unreachable from the last period, because it e.g. requires moving more than one pedals on either of the two feet. 
+
+From here on, I will remove to a pedal configuraiton and a corresponding string plucs as a 'configuration'. 
+
+Harpsweeper not looks at every configuration in period $t$, and checks every configuration in $t-1$, and ensures that there exists a configuration in $t-1$ that can be changed to the current configuraiton  
+ - changing more than one pedal per foot.
+ - changing a string that was played in period $t-1$
+ - does not change any of the strings that will be played in period $t$.
+
 
 
 ## Write Sheet Music
