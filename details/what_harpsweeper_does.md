@@ -39,7 +39,7 @@ In Harpsweeper, the to examples looks like this:
 
 Example Sequence 1 (Harpsweeper) |  Example Sequence 2 (Harpsweeper)
 :-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/details/example_images/Example_sequence_1_harpsweeper.png)  |  ![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/details/example_images/Example_sequence_2_harpsweeper.png)
+![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/details/example_images/Example_sequence_1a_harpsweeper.png)  |  ![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/details/example_images/Example_sequence_2b_harpsweeper.png)
 
 #### Example 2
 
