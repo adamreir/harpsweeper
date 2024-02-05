@@ -40,12 +40,12 @@ This option does what it's name suggests: it reverses the order of the notes. He
 
  Example 3a)               |  Example 3b)
 :-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/options/Example_3a.png) | ![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/options/Example_3b.png)
+![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/options/Example_3a.png) | ![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/options/Example_3b_4a.png)
 
 ### Place Note at Bottom
 
 This option also adjust the order the notes are displayed by adjusting what note is placed on the bottom. Here is an example: 
 
- Example 3a)               |  Example 3b)
+ Example 4a)               |  Example 4b)
 :-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/options/Example_3a.png) | ![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/options/Example_3b.png)
+![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/options/Example_3b_4a.png) | ![](https://raw.githubusercontent.com/adamreir/harpsweeper/main/documentation/images/options/Example_4b.png)
