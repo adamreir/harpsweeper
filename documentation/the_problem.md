@@ -54,8 +54,8 @@ The answer is no! At least given the restrictions that are programmed into Harps
  - The G string cannot change in beat 3, because it is ringing.
  - The G string can change to the b or # position in beat 4, but that is to late to play Ab or Gb.
  - The A string can change to Ab in beat 3
- - The G string can change to Gb in beat 3, but
- - Both the A and G strings cannot be changed simultaneouly on beat 3, because their pedal is on the same foot.
+ - The G string can change to Gb in beat 3
+ - But: Both the A and G strings cannot be changed simultaneouly on beat 3, because their pedal is on the same foot.
 
 Again, this simple example illustrates that the pedals are interconnected in a way that makes composing for the harp challanging. 
 
