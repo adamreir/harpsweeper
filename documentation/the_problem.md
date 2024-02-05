@@ -35,7 +35,7 @@ The only difference between the two sequences is that the G in sequence 1a) is s
 
 Although this example is trivial, it illustrates why organizing for harp can be challanging: Adjusting a single note can propagate through the harp, changing which other notes are played by what string. 
 
-In Harpsweeper, the to examples looks like this: 
+In Harpsweeper, the two examples looks like this: 
 
 Example Sequence 1 (Harpsweeper) |  Example Sequence 2 (Harpsweeper)
 :-------------------------:|:-------------------------:
