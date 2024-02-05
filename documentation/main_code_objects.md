@@ -6,21 +6,56 @@ This file documents the main entry points defined in each file.
 ## solver.py
 Solver.py defines the class 'Solver' that wraps up the functions defined in solver_functions.py and write_sheets.py. 
 
-To instanciate, type
 ```
-class solver = Solver(tune: list[list[int]], T: int, loop: bool)
-```
-`tune : list[list[int]]`
- - The selected notes. The index of each sublist corresponds to a period, and contains notes formatted as integer (0=C, 1=C# etc.).
- - E.g. walking up the C-major scale: `[[0], [2], [4], [5], [7], [9], [11]]`.
+class Solver:
+    """Class used to get a list of available notes and write sheet music.
 
-`T : int`
- - The total number of periods.
- 
-`loop : bool`
- - Indicates whether the 'Loop sequence' option is enabled. 
+        Instanciate:
+        ------------
+        solver = Solver(tune: list[list[int]], T: int, loop: bool)
+            tune : list[list[int]]
+                The selected notes. The index of each sublist corresponds to a period, 
+                and contains notes formatted as integer (0=C, 1=C# etc.).
+                E.g. walking up the C-major scale: [[0], [2], [4], [5], [7], [9], [11]].
+    
+            T : int
+                The total number of periods.
+    
+            loop : bool
+                Indicates whether the 'Loop sequence' option is enabled.
 
-When instanciated, the solver imidiately generates a list of valid configurationsand stores these internally. 
+
+        Attributes:
+        -----------
+        tune : list[list[int]]
+            Internal copy of the tune.
+        T : int
+            Internal copy of the number of periods.
+        loop : bool
+            Internal copy of the 'loop sequence' option indicator.
+
+        conf_lists : list[np.array]
+            A list of arrays. An array at list index t contains a list of valid pedal configurations in period t.
+        ring_lists : list[np.array]
+            A list of arrays. An array at list index t contains a list of string rings in period t.
+        *Note that each pedal configuration corresponds to a string ring at the same index.
+        *i.e. ring_list[t][n] corresponds to conf_list[t][n]
+
+        Methods:
+        --------
+        solve(self) -> None:
+            fills 'conf_lists' and 'ring_lists' with valid pedal configurations and corresponding string rings .
+            Called by __init__
+        get_avail_notes(self) -> list[str]:
+            Returns a list of available notes. Each note is a string, formatted as 'note_period', where 
+            'note' is a number between 0 and 12, and 'period' is the time period.
+        get_sheets(self, eng : bool) -> str:
+            eng : bool 
+                Indicates usage of English rather than Norwegian
+            -> str: 
+                A string that contains sheet music which can be written to a file. 
+    """
+ ```
 
 `Solver` implements two methods that acts as main entrance points: 
  - solver.get_avail_notes() -> numpy array of shape [12]. Each element is either 0 or 1, indicating whether the corresponding note is available. The array indexes C at index 0, C#/Db at index 1, etc. 
