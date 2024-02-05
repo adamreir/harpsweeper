@@ -8,16 +8,21 @@ Solver.py defines the class 'Solver' that wraps up the functions defined in solv
 
 To instanciate, type
 ```
-class solver = Solver(tune, T, loop)
+class solver = Solver(tune: list[list[int]], T: int, loop: bool)
 ```
-Where
- - 'tune' is a list[list[int]]. The index of 'tune' represents periods, and each element in 'tune' is a list of selected notes.
- - 'T' is an int: total number of periods
- - 'loop' is a bool: Indicates whether the 'Loop sequence' option is enabled. 
+`tune : list[list[int]]`
+ - The selected notes. The index of each sublist corresponds to a period, and contains notes formatted as integer (0=C, 1=C# etc.).
+ - E.g. walking up the C-major scale: `[[0], [2], [4], [5], [7], [9], [11]]`.
+
+`T : int`
+ - The total number of periods.
+ 
+`loop : bool`
+ - Indicates whether the 'Loop sequence' option is enabled. 
 
 When instanciated, the solver imidiately generates a list of valid configurationsand stores these internally. 
 
-'Solver' implements two methods that acts as main entrance points: 
+`Solver` implements two methods that acts as main entrance points: 
  - solver.get_avail_notes() -> numpy array of shape [12]. Each element is either 0 or 1, indicating whether the corresponding note is available. The array indexes C at index 0, C#/Db at index 1, etc. 
  - solver.get_sheets(eng) -> str. Returns a string that can be written directly to a file.
    - 'eng' is of type bool, and indicates whether the output should be in English or Norwegian.
