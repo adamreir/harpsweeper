@@ -8,6 +8,10 @@ Harpsweeper lets you generate a sequency of notes. It then shows the notes that 
  - only one pedal per foot can change in a single period.
  - pedals do not change at the same time or right after the corresponding string is played.
 
+## Download: 
+
+You can download a copy of Harpsweeper [here](https://www.dropbox.com/scl/fo/b9piezza5x2jjrh2e3miv/h?rlkey=rs0rz4ggzmhqkvangq15cyj6c&dl=0).
+
 ## Example: 
 
 Example of working in Harpsweeper: 
@@ -19,10 +23,6 @@ Generated sheet music based on the sequence above:
 <img src="https://raw.githubusercontent.com/adamreir/harpsweeper/main/example_images/example_sheets.png" alt="drawing" width="700"/>
 
 Open Harpsweeper for a more detailed user guide. You can also read detailed documentations of the options [here](details/options_explained.md). 
-
-## Download: 
-
-You can download a copy of Harpsweeper [here](https://www.dropbox.com/scl/fo/b9piezza5x2jjrh2e3miv/h?rlkey=rs0rz4ggzmhqkvangq15cyj6c&dl=0).
 
 ## Source Files: 
  - Code used to find available notes: 
