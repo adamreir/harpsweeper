@@ -57,7 +57,7 @@ The answer is no! At least given the restrictions that are programmed into Harps
  - The G string can change to Gb in beat 3
  - __But__ both the A and G strings cannot be changed simultaneouly on beat 3, because their pedal is on the same foot.
 
-Again, this simple example illustrates that the pedals are interconnected in a way that makes composing for the harp challanging. 
+This simple example illustrates that the pedals are interconnected in a way that can make composing for the harp challanging. 
 
 In Harpsweeper, the impossibility of this sequence looks like this: 
 
