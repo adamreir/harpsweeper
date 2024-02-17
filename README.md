@@ -41,6 +41,8 @@ Open Harpsweeper for a more detailed user guide. You can also read detailed docu
    - LICENSE
    - icon.ico
 
+An overview of the main code objects can be found [here](documentation/main_code_objects.md). The source code contains detailed documentation of how to use the main code objects. 
+
 ## Compiling source files into an executable program:
 
 To compile Harpsweeper, you need to:
