@@ -8,7 +8,7 @@ Contains the main execution loop. `main.py` relies (recursively) on every other 
 
 ## solver.py
 
-Defines the `Solver` class. `Solver` takes a sequence of notes and finds every note that can be added. Optionally, `Solver` can require the notes to be played in a loop, which may reduce the number of available notes. Lastly, Solver can produce sheet music, which shows how the selected notes can be played on the harp. 
+Defines the `Solver` class. `Solver` takes a sequence of notes and finds every note that can be added to the sequence. Optionally, `Solver` can require the notes to be played in a loop, which may reduce the number of available notes. Lastly, Solver can produce sheet music, which shows how the selected notes can be played on the harp. 
 
 Main methods:
  - `get_avail_notes(self) -> list[str]`: 
