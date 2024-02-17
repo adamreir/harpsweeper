@@ -10,7 +10,7 @@ Harpsweeper lets you generate a sequency of notes. It then shows the notes that 
 
 ## Download: 
 
-You can download a copy of Harpsweeper [here](https://www.dropbox.com/scl/fo/b9piezza5x2jjrh2e3miv/h?rlkey=rs0rz4ggzmhqkvangq15cyj6c&dl=0).
+You can download a free copy of Harpsweeper from Dropbox [here](https://www.dropbox.com/scl/fo/b9piezza5x2jjrh2e3miv/h?rlkey=rs0rz4ggzmhqkvangq15cyj6c&dl=0).
 
 ## Example: 
 
@@ -22,7 +22,7 @@ Generated sheet music based on the sequence above:
 
 <img src="https://raw.githubusercontent.com/adamreir/harpsweeper/main/example_images/example_sheets.png" alt="drawing" width="700"/>
 
-Open Harpsweeper for a more detailed user guide. You can also read detailed documentations of the options [here](details/options_explained.md). 
+Open Harpsweeper for a more detailed user guide. You can also read detailed documentations of the options [here](documentation/options_explained.md). 
 
 ## Source Files: 
  - Code used to find available notes: 
