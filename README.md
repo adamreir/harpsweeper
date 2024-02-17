@@ -1,8 +1,6 @@
 # Harpsweeper
 This is the repocitory for Harpsweeper, a program for composing and organizing for harps. 
 
-This program aids composing and organizing sequences of notes for the harp.
-
 Harpsweeper lets you generate a sequency of notes. It then shows the notes that can be added, given that
  - there exists a sequence of pedal configurations that can play the sequence.
  - only one pedal per foot can change in a single period.
