@@ -1,13 +1,14 @@
 # Main Code objects. 
 
-Harpsweeper is a self contained program with a graphical user interface. However, the various functions and classes defined used in Harpsweeper can be used as stand alone objects in other contexts. This file documents the main entry points for each of the source files. See docstrings in the source code for a more detailed documentation of how to use each object. 
+Harpsweeper is a self contained program with a graphical user interface. However, the various functions and classes defined used in Harpsweeper can be used as stand alone objects in other contexts. This file documents the main entry points. See docstrings in the source code for a more detailed documentation of how to use each object. 
 
 ## main.py
 
-`main.py` defines the main execution loop. `main.py` relies (recursively) on every other files defined in Harpsweeper.    
+Contains the main execution loop. `main.py` relies (recursively) on every other file in Harpsweeper.    
 
 ## solver.py
-Solver.py defines the `Solver` class. `Solver` takes a sequence of notes and finds every note that can be added. Optionally, `Solver` can require the notes to be played in a loop, which may reduce the number of available notes. Lastly, Solver can produce sheet music, which shows how the selected notes can be played on the harp. 
+
+Defines the `Solver` class. `Solver` takes a sequence of notes and finds every note that can be added. Optionally, `Solver` can require the notes to be played in a loop, which may reduce the number of available notes. Lastly, Solver can produce sheet music, which shows how the selected notes can be played on the harp. 
 
 Main methods:
  - `get_avail_notes(self) -> list[str]`: 
@@ -15,7 +16,7 @@ Main methods:
  - `get_sheets(self, eng : bool) -> str`:
     - Returns sheet music formated as a string. Can be written directly to a file.
 
-`Solver` uses functions defined in `solver_functions.py`, `make_sheets.py`, and `write_sheets.py`. 
+`Solver` calls functions defined in `solver_functions.py`, `make_sheets.py`, and `convert_sheets_to_string.py`. 
 
 ## layouts.py
 
