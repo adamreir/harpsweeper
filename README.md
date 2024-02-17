@@ -10,7 +10,7 @@ Harpsweeper lets you generate a sequency of notes. It then shows the notes that 
 
 ## Download: 
 
-You can download a free copy of Harpsweeper from Dropbox [here](https://www.dropbox.com/scl/fo/b9piezza5x2jjrh2e3miv/h?rlkey=rs0rz4ggzmhqkvangq15cyj6c&dl=0).
+You can download a free copy of Harpsweeper [here](https://www.dropbox.com/scl/fo/b9piezza5x2jjrh2e3miv/h?rlkey=rs0rz4ggzmhqkvangq15cyj6c&dl=0).
 
 ## Example: 
 
