@@ -4,6 +4,10 @@
 
 
 class Theme:
+    """Class that defines and changes between the two PySimpleGui themes accessible in Harpsweeper.
+
+     Also keeps track of a few manually defined colors, and the option that toggles a separate color for ringing notes.
+     """
     def __init__(self, sg):
         sg.LOOK_AND_FEEL_TABLE['darkmode'] = {
             'BACKGROUND': '#121212',
@@ -32,6 +36,7 @@ class Theme:
         self.darkmode = True
         sg.theme('darkmode')
 
+        self.show_ring_colors = True
         self.normal_button_font = ('helvetica', 11, 'bold')
         self.notebutton_active = '#33b249'
         self.notebutton_ring = '#229f8c'
@@ -57,3 +62,10 @@ class Theme:
             return '#424242'
         else:
             return '#F0F0F0'  # '#CDCDCD'
+
+    @property
+    def ring_color(self):
+        if self.show_ring_colors:
+            return self.notebutton_ring
+        else:
+            return self.notebutton_avail
