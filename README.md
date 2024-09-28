@@ -1,7 +1,7 @@
 # Harpsweeper
 This is the repocitory for Harpsweeper, a program for composing and organizing for the harp.
 
-Harpsweeper aims to solve two problems. First, Harpsweeper simplifies the process of composing for the harp by automating the process of eliminating notes. Harpsweeper eliminates notes by removing notes that are not accessable through a sequence of pedal configurations. Second, Harpsweeper simplifies the process of organizing for and playing the harp by suggesting pedal configurations that can be used to play a given melody. 
+Harpsweeper aims to solve two problems. First, Harpsweeper simplifies the process of composing for the harp by automating the process of eliminating notes. Harpsweeper eliminates notes by removing notes that are not accessable through a sequence of pedal configurations. Second, Harpsweeper simplifies the process of organizing for and playing the harp by suggesting pedal configurations. 
 
 In Harpsweeper, you enter a sequence of notes. Harpsweeper then finds all pedal sequences that can play the selected sequence of notes, and shows the user which notes can be added to the sequence. Lastly, Harpsweeper writes a text document with pedal configurations. 
 
