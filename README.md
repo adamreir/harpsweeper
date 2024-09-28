@@ -1,10 +1,10 @@
 # Harpsweeper
 This is the repocitory for Harpsweeper, a program for composing and organizing for harps. 
 
-Harpsweeper lets you generate a sequency of notes. It then shows the notes that can be added, given that
- - there exists a sequence of pedal configurations that can play the sequence.
- - only one pedal per foot can change in a single period.
- - pedals do not change at the same time or right after the corresponding string is played.
+Harpsweeper lets you generate a sequency of notes, and shows which notes can be added to the sequence, given that there exists a sequence of pedal configurations that can play the sequence. Pedal configurations are subject to the following constraints: 
+ - only one pedal per foot change single period.
+ - strings cannot change pich wile they are played.
+ - strings cannot change pich right after they are played. 
 
 ## Download: 
 
