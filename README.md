@@ -30,6 +30,10 @@ Open Harpsweeper for a more detailed user guide. You can also read detailed docu
 
 Harpsweeper has a few options. These are described [here](https://github.com/adamreir/harpsweeper/blob/main/documentation/options_explained.md)
 
+## Thanks
+
+Harpsweeper was developed in cooperation with [Kristin Bolstad}(https://www.kristinbolstad.com/)
+
 ## Source Files: 
  - Start Harpsweeper:
    - main.py -> Toggles between windows and keeps track of data available accross windows
