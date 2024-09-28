@@ -54,13 +54,13 @@ Harpsweeper was developed in cooperation with [Kristin Bolstad](https://www.kris
 
 An overview of the main code objects can be found [here](documentation/main_code_objects.md). The source code contains detailed documentation of how to use the main code objects. 
 
-## Compiling source files into an executable program:
+## Compiling source files (i.e. make Harpsweeper.exe from code files):
 
-To compile Harpsweeper, you need to:
- - Download the source files
- - Install Python and required dependencies (see [requirements.txt](requirements.txt))
- - Install pyinstaller
- - Run the following in Command Promt (Windows):  
+To compile Harpsweeper, you need to
+ - download the source files
+ - install Python and required dependencies (see [requirements.txt](requirements.txt))
+ - install pyinstaller
+ - run the following in Command Promt (Windows):  
 ```
 pyinstaller --onefile --windowed --clean --add-data 'LICENSE;.' --add-data 'icon.ico;.' --icon 'icon.ico' -n 'Harpsweeper'  main.py
 ```
