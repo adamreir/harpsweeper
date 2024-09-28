@@ -22,7 +22,7 @@ Example of working in Harpsweeper:
 
 <img src="https://raw.githubusercontent.com/adamreir/harpsweeper/main/example_images/harpsweeper_example.png" alt="drawing" width="700"/>
 
-Generated sheet music based on the sequence above: 
+Generated "sheet music" based on the sequence above: 
 
 <img src="https://raw.githubusercontent.com/adamreir/harpsweeper/main/example_images/example_sheets.png" alt="drawing" width="700"/>
 
