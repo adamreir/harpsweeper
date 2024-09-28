@@ -3,7 +3,7 @@
 import PySimpleGUI as sg
 #Import from harpsweeper files:
 from solver import Solver
-from write_sheet import tune_as_string
+from convert_sheets_to_string import tune_as_string
 #Python standard library:
 import pickle
 import copy
@@ -49,6 +49,7 @@ def get_ring_notes(T, active_notes, loop):
 #Function to get filename after compiling excel
 
 def get_filename(filename):
+    """Returns the absolute path for `filename'. The absolute path changes when Harpsweeper is compiled."""
     try:
         # Hack for pyInstaller. Refer https://stackoverflow.com/a/13790741
         base = sys._MEIPASS
@@ -57,10 +58,10 @@ def get_filename(filename):
     return os.path.join(base, filename)
 
 ################
-# Welcome screen#
+# Welcome page#
 ################1
 def make_welcome_layout(theme,texts):
-    welcome_screen = [
+    welcome_page = [
         [text(texts.welcome)],
         [input(texts.default_input, key='-T-')],
         [button('Start', key='-start-'),
@@ -73,11 +74,16 @@ def make_welcome_layout(theme,texts):
 
     welcome_layout = [[sg.Text(key='-EXPAND-', font='ANY 1', pad=(0, 0))],  # the thing that expands from top
                       [sg.Text('', pad=(0, 0), key='-EXPAND2-'),  # the thing that expands from left
-                       sg.Column(welcome_screen, vertical_alignment='center', justification='center', k='-C-')]]
+                       sg.Column(welcome_page, vertical_alignment='center', justification='center', k='-C-')]]
     return welcome_layout
 
 
-def welcome_screen(tune_holder, solver_holder, texts, theme):
+def show_welcome_page(tune_holder, solver_holder, texts, theme):
+    """Expects instances of TuneHolder, SolverHolder, Texts and Theme.
+
+    Shows the Welcome page.
+
+    Returns a string indicating which page the user wants to go to."""
     window = sg.Window(title="Harpsweeper",
                        layout=make_welcome_layout(theme=theme,texts=texts),
                        margins=(100, 50),
@@ -100,8 +106,8 @@ def welcome_screen(tune_holder, solver_holder, texts, theme):
         QT_ENTER_KEY1 = 'special 16777220'
         QT_ENTER_KEY2 = 'special 16777221'
 
-        if event in ('\r', QT_ENTER_KEY1, QT_ENTER_KEY2):
-            elem = window.FindElementWithFocus()
+        if event in ('\r', QT_ENTER_KEY1, QT_ENTER_KEY2): #if event: enter key pressed:
+            elem = window.FindElementWithFocus() #get the currently focused element.
             print(elem)
             print(elem.Type)
             print(elem.key)
@@ -167,7 +173,7 @@ def welcome_screen(tune_holder, solver_holder, texts, theme):
                     loop = True
                     ring_notes = get_ring_notes(len(tune), active_notes, loop)
                 tune_holder.setter(tune, active_notes, avail_notes, ring_notes, loop)
-                solver_holder.setter(Solver(tune, len(tune), loop))
+                solver_holder.setter(Solver(tune=tune, loop=loop))
                 window.close()
                 return 'main'
             except Exception as e:
@@ -177,12 +183,12 @@ def welcome_screen(tune_holder, solver_holder, texts, theme):
 
 
 ##############
-# About screen#
+# About page#
 ##############
 def make_about_layout(texts):
     about_text = texts.about
     pad = ((4, 0), (4, 4))
-    about_screen = [
+    about_page = [
         [sg.Text(about_text[0] + '\n')],
         [
             sg.Text(about_text[1], pad=((4, 0), (4, 4))),
@@ -200,12 +206,17 @@ def make_about_layout(texts):
 
     about_layout = [[sg.Text(key='-EXPAND-', font='ANY 1', pad=(0, 0))],  # the thing that expands from top
                     [sg.Text('', pad=(0, 0), key='-EXPAND2-'),  # the thing that expands from left
-                     sg.Column(about_screen, vertical_alignment='center', justification='center', k='-C-')]]
+                     sg.Column(about_page, vertical_alignment='center', justification='center', k='-C-')]]
 
     return about_layout
 
 
-def about_screen(texts):
+def show_about_page(texts):
+    """Expects an instance of Texts.
+
+    Shows the about page.
+
+    Returns a string indicating which page the user wants to go to."""
     window = sg.Window(title="Harpsweeper",
                        layout=make_about_layout(texts),
                        margins=(100, 50),
@@ -234,22 +245,22 @@ def about_screen(texts):
             return 'exit'
 
 ################
-#License screen#
+#License page#
 ################
 def make_license_layout(texts):
     pad = ((4, 0), (4, 4))
-    license_screen = [
+    license_page = [
         [sg.Text(texts.license(get_filename) + '\n')],
         [button(texts.back, key='-back-', pad=(4, 20))]
     ]
 
     license_layout = [[sg.Text(key='-EXPAND-', font='ANY 1', pad=(0, 0))],  # the thing that expands from top
                     [sg.Text('', pad=(0, 0), key='-EXPAND2-'),  # the thing that expands from left
-                     sg.Column(license_screen, vertical_alignment='center', justification='center', k='-C-')]]
+                     sg.Column(license_page, vertical_alignment='center', justification='center', k='-C-')]]
 
     return license_layout
 
-def license_screen(texts):
+def show_license_page(texts):
     window = sg.Window(title="Harpsweeper",
                        layout=make_license_layout(texts),
                        margins=(100, 50),
@@ -271,10 +282,10 @@ def license_screen(texts):
             return 'exit'
 
 ##################
-# Save/load screen#
+# Save/load page#
 ##################
 def make_save_load_layout(texts):
-    save_load_layout = [[sg.Column([  # Add an extra column to force horizontalseparators to stay at the middle.
+    save_load_layout = [[sg.Column([  # Add an extra column to force horizontal separators to stay at the middle.
         [text(texts.harpsweeper_files)],
 
         [sg.Input(visible=False, enable_events=True, key="-harp_file_save-"),
@@ -283,9 +294,10 @@ def make_save_load_layout(texts):
          filebrowse(texts.open, file_types=(('Sekvens', '.harps'),))],
 
         [sg.HorizontalSeparator()],
-        [text(texts.export)],
+        [text(texts.export[0])],
         [sg.Input(visible=False, enable_events=True, key='-export-'),
          saveas(texts.export_button, file_types=(('Tekstfil', '.txt'),))],
+        [text(texts.export[1])],
         [sg.HorizontalSeparator()],
         [button(texts.back, key='-back-'),
          button(texts.restart, key='-restart-')]
@@ -298,7 +310,7 @@ def make_save_load_layout(texts):
     return save_load_layout
 
 
-def save_load_screen(tune_backup, keep_solver,texts):
+def show_save_load_page(tune_backup, keep_solver, texts):
     window = sg.Window(title="Harpsweeper",
                        layout=make_save_load_layout(texts),
                        margins=(100, 50),
@@ -339,7 +351,7 @@ def save_load_screen(tune_backup, keep_solver,texts):
                     loop = True
                     ring_notes = get_ring_notes(len(tune), active_notes, loop)
                 tune_backup.setter(tune, active_notes, avail_notes, ring_notes, loop)
-                keep_solver.setter(Solver(tune, len(tune), loop))
+                keep_solver.setter(Solver(tune=tune, loop=loop))
                 window.close()
                 return 'main'
             except Exception as e:
@@ -349,7 +361,7 @@ def save_load_screen(tune_backup, keep_solver,texts):
             sheets = keep_solver.sheets(texts.eng)
             if sheets == False:  # If no solver is generated, generate one before getting sheets
                 tune, active_notes, avail_notes, ring_notes, loop = tune_backup.getter()
-                solver = Solver(tune, len(tune), loop)
+                solver = Solver(tune=tune, loop=loop)
                 sheets = solver.get_sheets(texts.eng)
             with open(filename, 'w') as f:
                 f.write(sheets)
@@ -363,10 +375,10 @@ def save_load_screen(tune_backup, keep_solver,texts):
 
 
 #############
-# Note screen#
+# Note page#
 #############
 
-def make_button_panel(notes, noteint, t, active_notes, avail_notes, ring_notes, theme):
+def make_note_buttons(notes, noteint, t, active_notes, avail_notes, ring_notes, theme):
     panel = [[sg.Text(str(t + 1) + ':')]]  # top row showing period
     m = 0
     for note in notes:
@@ -374,7 +386,7 @@ def make_button_panel(notes, noteint, t, active_notes, avail_notes, ring_notes, 
         if note_str in active_notes:
             color = theme.notebutton_active
         elif note_str in ring_notes and note_str in avail_notes:
-            color = theme.notebutton_ring
+            color = theme.ring_color
         elif note_str in avail_notes:
             color = theme.notebutton_avail
         else:
@@ -396,7 +408,7 @@ def make_main_layout(tune_holder, T, active_notes, avail_notes, ring_notes, them
 
     note_panel = [sg.Column(note_panel)]
     for t in range(T):
-        note_panel.append(sg.Column(make_button_panel(notes, noteint, t, active_notes, avail_notes, ring_notes, theme)))
+        note_panel.append(sg.Column(make_note_buttons(notes, noteint, t, active_notes, avail_notes, ring_notes, theme)))
         if t < T - 1:
             note_panel.append(sg.VSeparator())
 
@@ -406,11 +418,12 @@ def make_main_layout(tune_holder, T, active_notes, avail_notes, ring_notes, them
                             sbar_relief=sg.RELIEF_SOLID,
                             size_subsample_height=1)]
 
-    main_screen = [
+    main_page = [
         note_panel,
         [sg.Checkbox(texts.loop_checkmark_text, tune_holder.loop, key='-loop-', enable_events=True),
-         sg.Checkbox(texts.reverse_text, default=not texts.reverse, enable_events=True, key='-reverse-'),
          sg.Checkbox(texts.darkmode, default=theme.darkmode, enable_events=True, key='-darkmode-')],
+        [sg.Checkbox(texts.reverse_text, default=not texts.reverse, enable_events=True, key='-reverse-'),
+         sg.Checkbox(texts.show_ring_colors, default=theme.show_ring_colors, enable_events=True, key='-show_ring_colors-')],
         [text(texts.bottom_note_checkmark_text),
          sg.Combo(texts.notes, default_value=texts.bottom_note_str, enable_events=True, readonly=False,
                   key='-bottom_note-')],
@@ -420,28 +433,28 @@ def make_main_layout(tune_holder, T, active_notes, avail_notes, ring_notes, them
 
     main_layout = [[sg.Text(key='-EXPAND-', font='ANY 1', pad=(0, 0))],  # the thing that expands from top
                    [sg.Text('', pad=(0, 0), key='-EXPAND2-'),  # the thing that expands from left
-                    sg.Column(main_screen, vertical_alignment='center', justification='center', k='-C-')]]
+                    sg.Column(main_page, vertical_alignment='center', justification='center', k='-C-')]]
 
     return main_layout
 
-def update_buttons(window, active_notes, avail_notes, tune_backup, ring_notes, theme):
+def update_button_colors(window, active_notes, avail_notes, tune_backup, ring_notes, theme):
     T = len(tune_backup.tune)
     all_notes = {f'{n}_{t}' for t in range(T) for n in range(12)}
     for note in all_notes:
         if note in active_notes:
             window[f'note_{note}'].update(button_color=theme.notebutton_active)
         elif note in avail_notes and note in ring_notes:
-            window[f'note_{note}'].update(button_color=theme.notebutton_ring)
+            window[f'note_{note}'].update(button_color=theme.ring_color)
         elif note in avail_notes:
             window[f'note_{note}'].update(button_color=theme.notebutton_avail)
         else:
             window[f'note_{note}'].update(button_color=theme.notebutton_disable)
 
 
-def main_screen(tune_holder, keep_solver, texts, theme):
+def show_main_page(tune_holder, keep_solver, texts, theme):
     T = len(tune_holder.tune)
     tune, active_notes, avail_notes, ring_notes, loop = tune_holder.getter()
-    keep_solver.setter(Solver(tune, T, loop))
+    keep_solver.setter(Solver(tune=tune, loop=loop))
     avail_notes = keep_solver.getter().get_avail_notes()
     print(ring_notes)
     window = sg.Window(title="Harpsweeper",
@@ -451,6 +464,7 @@ def main_screen(tune_holder, keep_solver, texts, theme):
                        resizable=True,
                        finalize=True,
                        element_justification='c')
+    # Center align (horizontal and vertical) the content:
     window['-C-'].expand(True, True, True)
     window['-EXPAND-'].expand(True, True, True)
     window['-EXPAND2-'].expand(True, False, True)
@@ -471,6 +485,12 @@ def main_screen(tune_holder, keep_solver, texts, theme):
         if event == '-loop-':
             change_loop = True
             loop = values['-loop-']
+
+        if event == '-show_ring_colors-':
+            theme.show_ring_colors = not theme.show_ring_colors
+            update_button_colors(window, active_notes, avail_notes, tune_holder, ring_notes, theme)
+            #window.close()
+            #return 'main'
 
         if event == '-bottom_note-':
             texts.lastnote = texts.note_to_noteint[values['-bottom_note-']]
@@ -517,7 +537,7 @@ def main_screen(tune_holder, keep_solver, texts, theme):
             ring_notes = get_ring_notes(len(tune), active_notes, loop)
             try:
                 # solver = Solver(tune, T)
-                keep_solver.setter(Solver(tune, T, loop))
+                keep_solver.setter(Solver(tune=tune, loop=loop))
             except Exception as e:
                 if change_loop:
                     sg.popup(texts.not_with_loop)
@@ -538,10 +558,10 @@ def main_screen(tune_holder, keep_solver, texts, theme):
                 tune, active_notes, avail_notes, ring_notes, loop = tune_holder.getter()
                 # keep_solver.setter(Solver(tune, T, loop))
                 # solver = Solver(tune, T)
-                keep_solver.setter(Solver(tune, T, loop))
+                keep_solver.setter(Solver(tune=tune, loop=loop))
 
             avail_notes = keep_solver.getter().get_avail_notes()
-            update_buttons(window, active_notes, avail_notes, tune_holder, ring_notes, theme)
+            update_button_colors(window, active_notes, avail_notes, tune_holder, ring_notes, theme)
 
         if event == "Exit" or event == sg.WIN_CLOSED:
             return 'exit'
