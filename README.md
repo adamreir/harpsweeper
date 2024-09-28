@@ -32,7 +32,7 @@ Harpsweeper has a few options. These are described [here](https://github.com/ada
 
 ## Thanks
 
-Harpsweeper was developed in cooperation with [Kristin Bolstad}(https://www.kristinbolstad.com/)
+Harpsweeper was developed in cooperation with [Kristin Bolstad](https://www.kristinbolstad.com/)
 
 ## Source Files: 
  - Start Harpsweeper:
