@@ -5,24 +5,23 @@ from theme import Theme
 from layouts import *
 from holders import TuneHolder, SolverHolder
 
-
 if __name__ == '__main__':
     solver_holder = SolverHolder()
     tune_holder = TuneHolder()
     texts = Texts()
     theme = Theme(sg)
 
-    #Main loop
+    #Main loop. goto decides which page to open next
     goto = 'welcome'
     while goto != 'exit':
         match goto:
             case 'welcome':
-                goto = welcome_screen(tune_holder, solver_holder, texts, theme)
+                goto = show_welcome_page(tune_holder, solver_holder, texts, theme)
             case 'about':
-                goto = about_screen(texts)
+                goto = show_about_page(texts)
             case 'license':
-                goto = license_screen(texts)
+                goto = show_license_page(texts)
             case 'main':
-                goto = main_screen(tune_holder, solver_holder, texts, theme)
+                goto = show_main_page(tune_holder, solver_holder, texts, theme)
             case 'save':
-                goto = save_load_screen(tune_holder, solver_holder, texts)
+                goto = show_save_load_page(tune_holder, solver_holder, texts)
