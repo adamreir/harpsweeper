@@ -3,6 +3,14 @@
 #################################################################################
 
 class Texts:
+    """Keeps track of all the text displayed in the GUI, and toggles between English and Norwegian.
+
+    Also generates lists containing the ordering of the notes and pedals, which are affected by options.
+
+    Init signature:
+    ---------------
+    Texts()
+    """
     def __init__(self):
         self.eng = False
         #self.notelist = ['Bb','B','C','Db','D','Eb','E','F','Gb','G','Ab','A']
@@ -60,6 +68,12 @@ class Texts:
             return 'Inverter rekkefølgen'
 
     @property
+    def show_ring_colors(self):
+        if self.eng:
+            return 'Show ringing strings'
+        else:
+            return 'Vis ring'
+    @property
     def notes(self):
         return self.notelist
 
@@ -74,15 +88,15 @@ class Texts:
             desc_text += "\n    - pedals do not change at the same time or right after the corresponding string is played."
             desc_text += '\n\nNote that Harpsweeper'
             desc_text += '\n    - abstracts away from strings. I.e. Ab represents both Ab and G#.'
-            desc_text += '\n    - can suggested pedal sequences for the selected notes.'
-            desc_text += '\n    - does not take hand position or fingering reach into account.'
+            desc_text += '\n    - can suggested pedal sequences and generate sheet music in plain text format.'
+            desc_text += '\n    - does not take hand position or fingering into account.'
             desc_text += '\n\nShort user guide for the main screen:'
-            desc_text += '\n   - Each column represents one period (e.g. one quarter note).'
+            desc_text += '\n   - Each column represents one period (e.g. one beat).'
             desc_text += '\n   - Blue buttons represents available tones.'
             desc_text += '\n   - Green buttons represents selected tones.'
             desc_text += '\n   - Turquoise buttons are notes ringing from the previous period.'
             desc_text += '\n   - Red buttons are tones that are not possible to play, given selected notes and the restrictions above.'
-            desc_text += '''\n   - Enable the 'loop'-option if the first period is also played after the last.'''
+            desc_text += '''\n   - Enable the 'Loop sequence'-option if the first period is also played after the last.'''
             desc_text += '\n\n Select number of periods, or load an existing sequence: '
         else:
             desc_text = 'Velkommen til Harpsweeper!'
@@ -93,7 +107,7 @@ class Texts:
             desc_text += '\n    - at en pedal ikke endres samtidig eller rett etter at tilhørende streng spilles.'
             desc_text += '\n\nMerk at Harpsweeper'
             desc_text += '\n    - Fokuserer på toner. Dvs. at Ab representerer både Ab og G#.'
-            desc_text += '\n    - kan vise forslag til pedalkonfigurasjoner for å spille valgte toner.'
+            desc_text += '\n    - kan vise forslag til pedalkonfigurasjoner og skrive noter til en tekstfil.'
             desc_text += '\n    - ikke tar hensyn til hånd- eller fingerstilling.'
             desc_text += '\n\nKort brukerveiledning til hovedskjermen:'
             desc_text += '\n    - Hver kolonne representerer én periode (f.eks. en kvartnote).'
@@ -111,12 +125,12 @@ class Texts:
             return ['This program is developed by Adam Reiremo.',
                     '''Please do not hesitate to send me email at''',
                     'if you have any questions or requests.',
-                    'The source code for Harpsweeper is available at']
+                    'The source code and detailed documentation is available at']
         else:
             return ['Dette programmet er utviklet av Adam Reiremo.',
                     'Vennligst send en epost til',
                     'hvis du har noen spørsmål eller forespørsler.',
-                    'Kildekoden for Harpsweeper er tilgjengelig på']
+                    'Kildekoden og detailjert dokumentasjon er tilgjengelig på']
 
     @property
     def license_button(self):
@@ -196,9 +210,11 @@ class Texts:
     @property
     def export(self):
         if self.eng:
-            return 'Export sequence to text file (with pedal suggestions):'
+            return ['Export sheet music to text file (with pedal suggestions):',
+                    'Note: This takes a long time if there are many possible ways\nof playing the sequence']
         else:
-            return 'Eksporter noter til tekstfil (med pedalsekvenser):'
+            return ['Eksporter noter til tekstfil (med pedalsekvenser):',
+                    'Merk: Dette tar langt tid dersom det er mange mulige måter å spille notene på.']
 
     @property
     def export_button(self):
