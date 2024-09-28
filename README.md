@@ -26,6 +26,10 @@ Generated sheet music based on the sequence above:
 
 Open Harpsweeper for a more detailed user guide. You can also read detailed documentations of the options [here](documentation/options_explained.md). 
 
+## Options
+
+Harpsweeper has a few options. These are described [here](https://github.com/adamreir/harpsweeper/blob/main/documentation/options_explained.md)
+
 ## Source Files: 
  - Start Harpsweeper:
    - main.py -> Toggles between windows and keeps track of data available accross windows
