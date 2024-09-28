@@ -27,18 +27,19 @@ Generated sheet music based on the sequence above:
 Open Harpsweeper for a more detailed user guide. You can also read detailed documentations of the options [here](documentation/options_explained.md). 
 
 ## Source Files: 
+ - Start Harpsweeper:
+   - main.py -> Toggles between windows and keeps track of data available accross windows
  - Code used to find available notes: 
    - solver.py
- - Code used to write sheet music:
-   - write_sheet.py
+   - solver_functions.py
+ - Export sheet music:
+   - get_sheets.py -> convert music and pedal configuration to text for exporting
  - Code used to generate the graphical user interface (GUI):
    - layouts.py -> defines each window of the GUI. 
    - theme.py -> defines and organizes the two themes.
    - texts.py -> stores the text used in the GUI and keeps track of the chosen language.
  - Classes used to store and pass solvers and sequences between windows:
    - holders.py
- - The main loop: 
-   - main.py
  - Self-explanatory additional files:
    - LICENSE
    - icon.ico
