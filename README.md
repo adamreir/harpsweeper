@@ -6,7 +6,7 @@ Harpsweeper aims to solve two problems. First, Harpsweeper simplifies the proces
 In Harpsweeper, you enter a sequence of notes. Harpsweeper then finds all pedal sequences that can play the selected sequence of notes, and shows the user which notes can be added to the sequence. Lastly, Harpsweeper writes a text document with pedal configurations. 
 
 Pedal configurations are subject to the following constraints: 
- - one foot can only change one pedal a time.
+ - one foot can only change one pedal at any point in time.
  - strings cannot change pich while they are played.
  - strings cannot change pich while they ring.
 
